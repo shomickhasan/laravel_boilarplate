@@ -14,7 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+
+
+Route::get('/',function (){
+    return view('backend.pages.dashboard');
+})->name('admin_dashboard');
+
+Route::get('/blank', function(){
+    return view('backend.pages.blank');
+})->name('blank');
+
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
