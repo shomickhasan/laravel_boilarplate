@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',function (){
     return view('backend.pages.dashboard');
-})->name('admin_dashboard');
+})->middleware('auth')->name('admin_dashboard');
 
 Route::get('/blank', function(){
     return view('backend.pages.blank');
