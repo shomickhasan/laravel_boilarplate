@@ -52,13 +52,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="{{route('user.index')}}" class="nav-link">
                                 <i class="far fa-user nav-icon"></i>
                                 <p>Users</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="{{route('activity.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>User Activities</p>
                             </a>
@@ -67,6 +67,24 @@
                             <a href="pages/layout/top-nav.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>System Settings</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('auto')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>auto</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('add-edit')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>add edit same form</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('cat_index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>list</p>
                             </a>
                         </li>
                     </ul>

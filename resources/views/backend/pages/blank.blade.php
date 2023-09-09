@@ -23,8 +23,20 @@
         <div class="container-fluid">
             <div class="row">
                <h3>Start your code here and lets enjoy</h3>
+                <h1 id="myip"></h1>
             </div>
         </div>
     </section>
     <!-- /.content -->
 @endsection
+@push('script')
+    <script>
+        let data
+        $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
+             data= JSON.stringify(data, null, 2)
+           // document.getElementById('myip').innerHTML=
+        });
+        console.log(data)
+    </script>
+@endpush
+

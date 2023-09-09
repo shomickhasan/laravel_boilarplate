@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helper\CustomeClass;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
@@ -29,7 +30,8 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
         $valid = $request->session()->regenerate();
         if($valid){
-            return redirect()->intended(RouteServiceProvider::HOME);
+            CustomeClass::ActivityLoger(auth()->user()->id, 'User Login','Success','User Logged in ');
+            return redirect()->intended(RouteServiceProvider::HOME)->with('message','Login Successfully');
         }
 
     }
@@ -39,12 +41,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $user_id =auth()->user()->id;
         Auth::guard('web')->logout();
-
+        CustomeClass::ActivityLoger( $user_id,'User Logout','Success','User Logout in Successfully');
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
+        return redirect()->route('login')->with('message','Logout Successfully');
 
-        return redirect('/');
+
     }
 }
