@@ -40,15 +40,19 @@
                               </tr>
                               </thead>
                               <tbody>
-                              <tr>
-                                  <td>Trident</td>
-                                  <td>Internet
-                                      Explorer 4.0
-                                  </td>
-                                  <td>Win 95+</td>
-                                  <td> 4</td>
-                                  <td>X</td>
-                              </tr>
+                              @foreach($users as $user)
+                                  <tr>
+                                      <td>{{$user->name}}</td>
+                                      <td>{{$user->email}}</td>
+                                      <td>
+                                          @foreach($user->roles as $role)
+                                              {{$role->name}}
+                                          @endforeach
+                                      </td>
+                                      <td> 4</td>
+                                      <td>X</td>
+                                  </tr>
+                              @endforeach
                               </tbody>
                           </table>
                       </div>

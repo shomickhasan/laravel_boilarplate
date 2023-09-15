@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ActivityController;
+use App\Http\Controllers\Rollcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,14 @@ Route::middleware('auth')->prefix('admin')->group(function(){
         ->name('store_update');
 
     Route::get('/category-index', [ActivityController::class, 'categoryIndex'])->name('cat_index');
+
+
+    //route for role and permission
+    Route::get('/roles',[Rollcontroller::class,'index'])->name('roles');
+    Route::get('/add-role',[Rollcontroller::class,'create'])->name('role.add');
+    Route::post('/store-role',[Rollcontroller::class,'store'])->name('role.store');
+    Route::get('/store-edit/{id}',[Rollcontroller::class,'edit'])->name('role.edit');
+    Route::post('/store-update/{id}',[Rollcontroller::class,'update'])->name('role.update');
 
 });
 
