@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Models\User;
 
 class Rollcontroller extends Controller
 {
@@ -14,8 +15,9 @@ class Rollcontroller extends Controller
     }
 
     public function create(){
-        $permissions = Permission::all();
-        return view('backend.pages.role.create',compact('permissions'));
+
+        $permission_group = User::getPermissionGroup();
+        return view('backend.pages.role.create',compact('permission_group'));
     }
 
     public function store(Request $request){

@@ -37,17 +37,37 @@
                                 @error('name')
                                 <p class="text-danger">{{$message}}</p>
                                 @enderror
-                                <label>Permissions</label>
-
-                                    @foreach($permissions as $permissions)
-                                    <div class="form-group">
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" value="{{$permissions->id}}" name="permission[]">{{$permissions->name}}
-                                            </label>
+                                <h2>Permissions</h2>
+                                <div class="row text-capitalize">
+                                        @foreach($permission_group as $group)
+                                        <div class="col-md-3 text-bold">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" value="" name="">{{$group->group_name}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <br>
                                         </div>
-                                    </div>
-                                    @endforeach
+                                            @php
+                                                $permissions = App\Models\User::getPermission($group->group_name)
+                                            @endphp
+                                                <div class="col-md-9">
+                                                    @foreach($permissions as $permissions)
+                                                        <div class="form-group">
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input type="checkbox" class="form-check-input" value="{{$permissions->id}}" name="permission[]">{{$permissions->name}}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                       @endforeach
+                                </div>>
+
+
 
                                 <div class="form-group">
                                     <input type="submit" value="save" class="btn btn-primary">

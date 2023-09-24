@@ -19,7 +19,8 @@
     </div>
     <!-- /.content-header -->
     <!-- Main content -->
-    <section class="content">
+    @can('add user')
+        <section class="content">
         <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
@@ -62,6 +63,7 @@
             </div>
         </div>
     </section>
+    @endcan
     <!-- /.content -->
 @endsection
 @push('script')
